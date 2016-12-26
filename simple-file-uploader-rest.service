@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve simple-file-uploader-rest
+After=network.target
+
+[Service]
+User=sokokaleb
+Group=www-data
+WorkingDirectory=/var/www/simple-file-uploader-reset
+Environment="PATH=/home/vagrant/.py-envs/simple-file-uploader-rest/bin"
+ExecStart=/home/vagrant/.py-envs/simple-file-uploader-rest/bin/uwsgi --ini simple-file-uploader-rest.ini
+
+[Install]
+WantedBy=multi-user.target
